@@ -73,8 +73,8 @@ include $plugin_dir.'/img-functions.php';
 
 function cap_report_styles_scripts() {
     if (is_singular('reports')) {
-        wp_register_style( 'cap-reports-theme-compat',  plugin_dir_url( __FILE__ ) . 'cap-reports-theme-support.css' );
-        wp_register_style( 'cap-reports-full',  plugin_dir_url( __FILE__ ) . 'cap-reports-full.css' );
+        wp_register_style( 'cap-reports-theme-compat',  plugin_dir_url( __FILE__ ) . 'css/cap-reports-theme-support.css' );
+        wp_register_style( 'cap-reports-full',  plugin_dir_url( __FILE__ ) . 'css/cap-reports-full.css' );
 
         // Check to see if the current theme has support for cap-reports
         // This can be delcared on a theme by declaring add_theme_support('cap-reports'); in functions.php

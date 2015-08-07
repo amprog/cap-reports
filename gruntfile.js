@@ -9,8 +9,8 @@ module.exports = function(grunt) {
                     style: 'expanded'
                 },
                 files: {
-                    'cap-reports-theme-support.css':'scss/reports.scss',
-                    'cap-reports-full.css':'scss/reports-full.scss',
+                    'css/cap-reports-theme-support.css':'scss/reports.scss',
+                    'css/cap-reports-full.css':'scss/reports-full.scss',
                 }
             },
         },
