@@ -63,7 +63,9 @@ body.single-reports {
             }
 
             // Full bleed images
-            .wide-paragraph {
+            figure.alignnone {
+                @extend %full-bleed-in-grid;
+                margin: 0;
                 img {
                     border-bottom: 1px solid #eaeaea;
                     & + .sti-share-box {
@@ -133,9 +135,12 @@ body.single-reports {
             }
 
             // Little style hack for tweets that appear right after a chapter title.
-            .chapter-title + .oembed .tweet-embed {
+            .chapter-title + .oembed[data-src*="twitter.com"] .tweet-embed {
                 &:before {
                     display: none;
+                }
+                .tweet-offset {
+                    border-bottom: 2px solid #55acee;
                 }
             }
             .tweet-embed {
@@ -157,7 +162,6 @@ body.single-reports {
                         top: -2px;
                         padding: 1rem 0;
                         border-top: 2px solid #55acee;
-                        border-bottom: 2px solid #55acee;
                     }
                     iframe[style] {
                         width: 100%!important;

@@ -16,19 +16,19 @@ jQuery(document).ready(function(){
     jQuery('.twitter-tweet').wrap('<div class="tweet-offset"></div>');
     jQuery('.tweet-offset').wrap('<div class="tweet-embed"></div>');
 
-    // Find all instances of a full sized no aligned image and add a class to the containing paragraph.
-    jQuery( 'img.alignnone.size-full' ).each(function( index ) {
-        // Get the parent paragraph.
-        // First check to see if the image is wrapped in a A tag or just a P tag.
-        var elementCheck = jQuery( this ).parent().get(0).tagName;
-        if ( elementCheck == "A" ) {
-            var wideA = jQuery( this ).parent().get(0).closest('p');
-            jQuery( wideA ).addClass('wide-paragraph');
-        } else {
-            var wideP = jQuery( this ).parent().get(0);
-            jQuery( wideP ).addClass('wide-paragraph');
-        }
-    });
+    // // Find all instances of a full sized no aligned image and add a class to the containing paragraph.
+    // jQuery( 'img.alignnone.size-full' ).each(function( index ) {
+    //     // Get the parent paragraph.
+    //     // First check to see if the image is wrapped in a A tag or just a P tag.
+    //     var elementCheck = jQuery( this ).parent().get(0).tagName;
+    //     if ( elementCheck == "A" ) {
+    //         var wideA = jQuery( this ).parent().get(0).closest('p');
+    //         jQuery( wideA ).addClass('wide-paragraph');
+    //     } else {
+    //         var wideP = jQuery( this ).parent().get(0);
+    //         jQuery( wideP ).addClass('wide-paragraph');
+    //     }
+    // });
 
     jQuery('blockquote').each(function( index ) {
         if(jQuery(this).next('p:has(cite)')) {

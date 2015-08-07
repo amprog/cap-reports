@@ -3,7 +3,19 @@ img {
     height: auto;
 }
 
-// Captions
+// Embeds
+////////////////////////////////////////
+figure.oembed {
+    &[data-src*="soundcloud.com"] {
+        margin-left: 0;
+        margin-right: 0;
+        iframe {
+            max-width: 100%;
+        }
+    }
+}
+
+// Captions & Photo Box
 ////////////////////////////////////////
 
 %caption-text-left {
@@ -22,6 +34,35 @@ img {
             width: 50%;
             margin-bottom: 10px;
             margin-left: 50%;
+        }
+    }
+}
+
+.image-box {
+    .image-meta {
+        .photo-credit {
+            float: right;
+            position: relative;
+            display: block;
+            margin-top: -2.25rem;
+            opacity: 0.8;
+            font-size: 0.8rem;
+            color: #fff;
+            text-shadow: 0px 1px 1px #000;
+            padding-right: 2rem;
+        }
+    }
+}
+
+.image-box.alignnone {
+    margin-bottom: 1rem;
+    .image-meta {
+        .photo-caption {
+            display: block;
+            font-size: 0.8rem;
+            padding-top: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
     }
 }

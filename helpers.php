@@ -27,9 +27,7 @@ function cap_report_modal($modal_content, $modal_id, $modal_trigger_selector, $a
 }
 
 function cap_report_helper_oembed_filter( $html, $url, $args ) {
-    // if (is_singular('reports')) {
-		$html = '<figure class="oembed">' . $html . '</figure>';
-	// }
+	$html = '<figure class="oembed" data-src="'.esc_url($url).'">' . $html . '</figure>';
     return $html;
 };
 // add the filter

@@ -14,8 +14,8 @@ html {
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: 'MaterialDesignIcons';
-  src: url("bower_components/mdi/fonts/materialdesignicons-webfont.eot?v=1.0.8");
-  src: url("bower_components/mdi/fonts/materialdesignicons-webfont.eot?#iefix&v=1.0.8") format("embedded-opentype"), url("bower_components/mdi/fonts/materialdesignicons-webfont.woff2?v=1.0.8") format("woff2"), url("bower_components/mdi/fonts/materialdesignicons-webfont.woff?v=1.0.8") format("woff"), url("bower_components/mdi/fonts/materialdesignicons-webfont.ttf?v=1.0.8") format("truetype"), url("bower_components/mdi/fonts/materialdesignicons-webfont.svg?v=1.0.8#materialdesigniconsregular") format("svg");
+  src: url("../bower_components/mdi/fonts/materialdesignicons-webfont.eot?v=1.0.8");
+  src: url("../bower_components/mdi/fonts/materialdesignicons-webfont.eot?#iefix&v=1.0.8") format("embedded-opentype"), url("../bower_components/mdi/fonts/materialdesignicons-webfont.woff2?v=1.0.8") format("woff2"), url("../bower_components/mdi/fonts/materialdesignicons-webfont.woff?v=1.0.8") format("woff"), url("../bower_components/mdi/fonts/materialdesignicons-webfont.ttf?v=1.0.8") format("truetype"), url("../bower_components/mdi/fonts/materialdesignicons-webfont.svg?v=1.0.8#materialdesigniconsregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -4281,7 +4281,7 @@ html {
   display: inline-block;
 }
 
-body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .aesop-article-chapter-wrap.has-chapter-image,
+body.single-reports .entry-body .entry-content figure.alignnone, body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .aesop-article-chapter-wrap.has-chapter-image,
 body.single-reports .entry-body .entry-content .aesop-content-component,
 body.single-reports .entry-body .entry-content .aesop-video-component:not(.aesop-content),
 body.single-reports .entry-body .entry-content .wide-paragraph, .chapter:not(:first-of-type) .chapter-title:before {
@@ -4289,7 +4289,7 @@ body.single-reports .entry-body .entry-content .wide-paragraph, .chapter:not(:fi
   margin-left: -2rem;
 }
 @media screen and (min-width: 900px) {
-  body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .aesop-article-chapter-wrap.has-chapter-image,
+  body.single-reports .entry-body .entry-content figure.alignnone, body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .aesop-article-chapter-wrap.has-chapter-image,
   body.single-reports .entry-body .entry-content .aesop-content-component,
   body.single-reports .entry-body .entry-content .aesop-video-component:not(.aesop-content),
   body.single-reports .entry-body .entry-content .wide-paragraph, .chapter:not(:first-of-type) .chapter-title:before {
@@ -4375,18 +4375,21 @@ body.single-reports .entry-body .entry-sidebar > div > div, body.single-reports 
     margin-top: 0px !important;
   }
 }
-body.single-reports .entry-body .entry-content .wide-paragraph img {
+body.single-reports .entry-body .entry-content figure.alignnone {
+  margin: 0;
+}
+body.single-reports .entry-body .entry-content figure.alignnone img {
   border-bottom: 1px solid #eaeaea;
 }
-body.single-reports .entry-body .entry-content .wide-paragraph img + .sti-share-box {
+body.single-reports .entry-body .entry-content figure.alignnone img + .sti-share-box {
   padding-left: 1rem !important;
   padding-right: 1rem !important;
 }
-body.single-reports .entry-body .entry-content .wide-paragraph .sti .sti-share-box {
+body.single-reports .entry-body .entry-content figure.alignnone .sti .sti-share-box {
   position: relative !important;
   left: 0 !important;
 }
-body.single-reports .entry-body .entry-content .wide-paragraph .sti .sti-share-box .mdi {
+body.single-reports .entry-body .entry-content figure.alignnone .sti .sti-share-box .mdi {
   display: inline-block !important;
 }
 body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left {
@@ -4434,8 +4437,11 @@ body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-comp
 body.single-reports .entry-body .entry-content .aesop-video-component .pretty-embed {
   margin-bottom: 0;
 }
-body.single-reports .entry-body .entry-content .chapter-title + .oembed .tweet-embed:before {
+body.single-reports .entry-body .entry-content .chapter-title + .oembed[data-src*="twitter.com"] .tweet-embed:before {
   display: none;
+}
+body.single-reports .entry-body .entry-content .chapter-title + .oembed[data-src*="twitter.com"] .tweet-embed .tweet-offset {
+  border-bottom: 2px solid #55acee;
 }
 body.single-reports .entry-body .entry-content .tweet-embed {
   position: relative;
@@ -4458,7 +4464,6 @@ body.single-reports .entry-body .entry-content .tweet-embed .tweet-offset {
     top: -2px;
     padding: 1rem 0;
     border-top: 2px solid #55acee;
-    border-bottom: 2px solid #55acee;
   }
 }
 body.single-reports .entry-body .entry-content .tweet-embed .tweet-offset iframe[style] {
@@ -4501,6 +4506,14 @@ img {
   height: auto;
 }
 
+figure.oembed[data-src*="soundcloud.com"] {
+  margin-left: 0;
+  margin-right: 0;
+}
+figure.oembed[data-src*="soundcloud.com"] iframe {
+  max-width: 100%;
+}
+
 @media screen and (min-width: 1123px) {
   .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption, figure.wp-caption.aligncenter .wp-caption-text, figure.wp-caption.alignnone .wp-caption-text, figure.wp-caption.align-caption-left .wp-caption-text {
     text-align: left;
@@ -4519,6 +4532,29 @@ img {
     margin-bottom: 10px;
     margin-left: 50%;
   }
+}
+
+.image-box .image-meta .photo-credit {
+  float: right;
+  position: relative;
+  display: block;
+  margin-top: -2.25rem;
+  opacity: 0.8;
+  font-size: 0.8rem;
+  color: #fff;
+  text-shadow: 0px 1px 1px #000;
+  padding-right: 2rem;
+}
+
+.image-box.alignnone {
+  margin-bottom: 1rem;
+}
+.image-box.alignnone .image-meta .photo-caption {
+  display: block;
+  font-size: 0.8rem;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 figure {
