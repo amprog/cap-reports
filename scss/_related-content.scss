@@ -1,0 +1,41 @@
+#related-reports {
+    margin-top: $report-grid-padding * 2;
+    @include row();
+    & > a {
+        width: 100%;
+        display: block;
+        @include media($palm) {
+            &:first-of-type {
+                margin-bottom: 1.5rem;
+            }
+        }
+        @include media($lap-and-up) {
+            @include span-columns(6);
+        }
+        background-size: cover;
+        background-position: center;
+        div {
+            background-color: rgba(0,0,0,0.46);
+            padding: 2rem;
+            * {
+                color: #fff;
+            }
+            h3 {
+                @include media($lap-and-up) {
+                    margin-bottom: 1.5rem;
+                }
+            }
+            span {
+                display: none;
+                @include media($lap-and-up) {
+                    display: block;
+                }
+                font-size: .8rem;
+                strong {
+                    border-bottom: 2px solid rgba(255,255,255,0.4);
+                    padding-bottom: .15rem;
+                }
+            }
+        }
+    }
+}

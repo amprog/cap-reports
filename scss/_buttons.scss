@@ -1,0 +1,17 @@
+.cpr-btn {
+    @include appearance(none);
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}

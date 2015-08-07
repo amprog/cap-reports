@@ -1,0 +1,217 @@
+%full-bleed-in-grid {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    @include media($two-columns) {
+        width: calc(100% + 368px);
+        margin-left: -336px!important;
+    }
+}
+
+body.single-reports {
+
+    .entry-body {
+        background: white;
+        @include padding(2rem);
+        @include clearfix();
+        @include display(flex);
+        @include flex-direction(column);
+        @include outer-container(1150px);
+
+        @include media($two-columns) {
+            @include padding(2rem 0 2rem 0);
+            @include flex-direction(row);
+        }
+
+        & > div {
+            position: relative;
+        }
+
+        & > div:first-of-type {
+            @include media($two-columns) {
+                padding-left: 2rem;
+                width: 300px;
+            }
+        }
+
+        & > div:last-of-type {
+            @include media($two-columns) {
+                @include calc(width, "100% - 250px");
+                padding-left: 50px;
+                padding-right: 2rem;
+            }
+        }
+
+        .entry-sidebar {
+            & > div {
+                & > div,
+                & > span {
+                    display: block;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid #eaeaea;
+                }
+            }
+        }
+
+        .entry-content {
+            @include media($tablet-up) {
+                & > section:first-of-type {
+                    .aesop-article-chapter-wrap {
+                        margin-top: 0px!important;
+                    }
+                }
+            }
+
+            // Full bleed images
+            .wide-paragraph {
+                img {
+                    border-bottom: 1px solid #eaeaea;
+                    & + .sti-share-box {
+                        padding-left: 1rem!important;
+                        padding-right: 1rem!important;
+                    }
+                }
+                .sti .sti-share-box {
+                    position: relative!important;
+                    left: 0!important;
+                    .mdi {
+                        display: inline-block!important;
+                    }
+                }
+            }
+
+            // Create pull quotes for the Aesop quote element.
+            .aesop-quote-component {
+                &.aesop-component-align-left {
+                    float: none;
+                    width: 100%!important;
+                    @include media($tablet-up) {
+                        float: left;
+                        margin-left: 0!important;
+                        width: 35%!important;
+                        margin-right: 50px!important;
+                    }
+                    blockquote {
+                        margin-left: 0!important;
+                    }
+                    @include media($two-columns) {
+                        float: left!important;
+                        margin-left: -300px!important;
+                        width: calc(100% - 300px)!important;
+                        width: -webkit-calc(100% - 300px)!important;
+                        margin-right: 65px!important;
+                        blockquote {
+                            &:before,
+                            &:after {
+                                display: block;
+                                content: "";
+                                width: 40%;
+                                border-top: 4px solid #eaeaea;
+                            }
+
+                            &.aesop-component-align-left {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .aesop-video-component {
+                @include media($two-columns) {
+                    &.aesop-component-align-left {
+                        position: relative;
+                        float: left;
+                        width: 500px;
+                        margin-right: 3rem;
+                        margin-left: -300px!important;
+                    }
+                }
+                .pretty-embed {
+                    margin-bottom: 0;
+                }
+            }
+
+            // Little style hack for tweets that appear right after a chapter title.
+            .chapter-title + .oembed .tweet-embed {
+                &:before {
+                    display: none;
+                }
+            }
+            .tweet-embed {
+                position: relative;
+                @extend %full-bleed-in-grid;
+                &:before {
+                    display: block;
+                    content: "";
+                    width: 100%;
+                    border-top: 2px solid rgba(85, 172, 238, 0.29);
+                    position: relative;
+                    top: -2px;
+                }
+                .tweet-offset {
+                    @include padding(1rem 2rem 1rem 2rem);
+                    @include media($two-columns) {
+                        position: absolute;
+                        width: 250px;
+                        top: -2px;
+                        padding: 1rem 0;
+                        border-top: 2px solid #55acee;
+                        border-bottom: 2px solid #55acee;
+                    }
+                    iframe[style] {
+                        width: 100%!important;
+                    }
+                }
+            }
+
+            // "Full Bleed" within grid
+            .aesop-article-chapter-wrap.has-chapter-image,
+            .aesop-content-component,
+            .aesop-video-component:not(.aesop-content),
+            .wide-paragraph {
+                @extend %full-bleed-in-grid;
+                // max-width: 100%;
+            }
+            .aesop-content-component {
+                .aesop-content-comp-inner {
+                    padding: 2rem;
+                    @include media($two-columns) {
+                        padding-left: 335px;
+                    }
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5 {
+                        &:first-of-type {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.single-reports {
+    // Paragraph Counter
+    .entry-content {
+        counter-reset: paragraph;
+    }
+
+    .entry-content p.counter-paragraph:hover {
+        &:before {
+            opacity: 1.0;
+        }
+    }
+    .entry-content p.counter-paragraph:before {
+        position: absolute;
+        margin-left: -30px;
+        color: #CCC;
+        content: counter(paragraph);
+        counter-increment: paragraph;
+        opacity: 0.4;
+        font-size: .8rem;
+    }
+}

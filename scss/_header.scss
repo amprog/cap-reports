@@ -1,0 +1,76 @@
+// We're setting up the styles of the report heading outside the container because it can and will move...
+.report-title {
+    @include outer-container();
+    padding: 2rem;
+}
+.cpr-entry-title {
+    text-transform: uppercase;
+    line-height: 1;
+}
+.cpr-entry-subtitle {
+    // opacity: 0.8;
+    text-transform: capitalize;
+    font-weight: lighter;
+    // A little hack to move the subtitle up to the bottom of the title..
+    // this pseudo makes .cpr-entry-title have no margin-bottom bc we negate it vertically.
+    margin-top: -0.75rem!important;
+}
+
+#report-header {
+    z-index: 4;
+    position: relative;
+    @include aspect-ratio(1440, 565);
+    // BG Settings
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    // Basic Typography
+    text-align: left;
+    color: #fff;
+
+    .cpr-header-gradient {
+        color: #fff;
+        // Setup flexbox
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(flex-end);
+        @include flex-direction(column);
+        // Create slight black to transparent gradient
+        @include media(min-width 700px) {
+            @include linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.45) 59%,rgba(0,0,0,0.65) 100%);
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    // In header typography for title and such
+    .report-title {
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(center);
+        @include flex-direction(column);
+        @include flex-grow(1);
+        text-align: center;
+
+    }
+    .cpr-entry-title {
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+        font-size: 2.5rem;
+        @include media($two-columns) {
+            font-size: 3rem;
+        }
+        line-height: 1.15;
+    }
+
+    .cpr-entry-category {
+        text-transform: uppercase;
+        font-size: 80%;
+        border: 1px solid #fff;
+        background-color: rgba(0,0,0,0.1);
+        padding: .35em 1em;
+        border-radius: 50px;
+        color: #fff;
+        display: inline-block;
+    }
+
+}

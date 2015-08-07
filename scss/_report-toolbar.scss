@@ -1,0 +1,21 @@
+#bottom-post-tools {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .5em;
+    z-index: 3;
+    background-color: #fff;
+    border-top: 1px solid #eaeaea;
+    @include media($palm) {
+        font-size: 100%;
+    }
+    font-size: 80%;
+    @include clearfix();
+    & > span,
+    & > a span {
+        @include media($palm) {
+            display: none;
+        }
+    }
+}

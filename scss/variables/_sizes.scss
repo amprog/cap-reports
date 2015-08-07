@@ -1,0 +1,25 @@
+@import "bower_components/neat/app/assets/stylesheets/neat-helpers"; // or "../neat/neat-helpers" when not in Rails
+
+// Neat Overrides
+// $column: 90px;
+// $gutter: 30px;
+// $grid-columns: 12;
+$max-width: 1200px;
+
+$report-grid-padding: 1rem;
+$report-grid-max-width: 750px;
+
+$palm: new-breakpoint(max-width 480px);
+$lap: new-breakpoint(min-width 481px max-width 1023px);
+$lap-and-up: new-breakpoint(min-width 482px);
+$portable: new-breakpoint(max-width 1023px);
+$navbar-threshold: new-breakpoint(max-width 860px);
+$columns-threshold: new-breakpoint(min-width 800px);
+$desk: new-breakpoint(min-width 1024px);
+$desk-wide: new-breakpoint(min-width 1280px);
+$full-hd: new-breakpoint(min-width 1920px);
+
+
+$tablet-up:         new-breakpoint(min-width 720px);
+
+$two-columns:       new-breakpoint(min-width 900px);

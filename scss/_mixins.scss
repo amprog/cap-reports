@@ -1,0 +1,32 @@
+@mixin z-depth($z-depth) {
+    @if $z-depth == 1 {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    } @elseif $z-depth == 2 {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    } @elseif $z-depth == 3 {
+        box-shadow: 0 9px 18px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@mixin make-centered() {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .maintain-ratio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,15 @@
+.chapter {
+    .chapter-title {
+        margin-bottom: 2rem;
+    }
+    &:not(:first-of-type) {
+        .chapter-title:before {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            content: "";
+            display: block;
+            border-top: 2px solid #eaeaea;
+            @extend %full-bleed-in-grid;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+/**
+ * This plugin makes some asumptions about your themes design.
+ * ///////////////////////////////////////////////////////////
+ * Your theme should also be using a typographic/modular scale of rems. With 1rem = (14px min to 18px max).
+*/
+
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+// Variables
+@import "variables/sizes";
+
+// Frameworks
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+@import "../bower_components/mdi/scss/materialdesignicons";
+
+@import "mixins";
+@import "modals";
+@import "buttons";
+@import "header";
+@import "grid";
+@import "media";
+@import "chapters";
+@import "related-content";
+@import "report-toolbar";
+@import "accordion";

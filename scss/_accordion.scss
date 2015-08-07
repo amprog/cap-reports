@@ -1,0 +1,75 @@
+.accordion-tabs {
+    @include clearfix;
+    padding: 0;
+
+    .tab-header-and-content {
+        list-style: none;
+    }
+
+    .tab-link {
+        display: block;
+        padding-right: 1em;
+    }
+
+    .is-active {
+        color: #ff0000;
+    }
+
+    .tab-content {
+        display: none;
+        width: 100%;
+    }
+}
+
+#report-overview {
+
+    .overview-container {
+        @include outer-container($report-grid-max-width+300);
+        padding: $report-grid-padding $report-grid-padding $report-grid-padding*2 $report-grid-padding;
+        & > div:first-of-type {
+            text-align: center;
+            padding-top: .5rem;
+            padding-bottom: 2rem;
+            a {
+                &:last-of-type {
+                    color: darken(#eaeaea, 20%);
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+
+    h4 {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #key-points {
+        width: 100%;
+        @include clearfix();
+        padding: 2rem 0;
+        aside {
+            @include span-columns(4);
+            @include media($palm) {
+                @include span-columns(12);
+                margin-bottom: 1rem;
+            }
+            text-align: center;
+        }
+    }
+
+    #key-takeaways {
+        padding-bottom: 2rem;
+        aside {
+            padding: 1rem 3rem;
+            font-size: 1.85rem;
+            @include media($palm) {
+                font-size: 1.25rem;
+                padding: .5rem 1.5rem;
+            }
+            .share-selection {
+                padding-left: 1rem;
+            }
+        }
+    }
+}
