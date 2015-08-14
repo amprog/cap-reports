@@ -7,7 +7,6 @@ Version: 0.1
 Author: Seth Rubenstein for Center for American Progress
 Author URI: http://sethrubenstein.info
 */
-// add_theme_support("aesop-component-styles", array("parallax", "image", "quote", "gallery", "content", "video", "audio", "collection", "chapter", "document", "character", "map", "timeline" ) );
 
 if ( ! function_exists('c3_c4_report_register') ) {
     // Register Report Post Type

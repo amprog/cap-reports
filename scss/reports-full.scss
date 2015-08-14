@@ -1,8 +1,65 @@
 @import "reports";
 
+body.single-reports {
 
-#report-overview {
-    h4 {
-        color: rgb(74, 75, 74);
+    #report-overview {
+        h4 {
+            color: rgb(74, 75, 74);
+        }
     }
+
+    #key-points {
+        @include display(flex);
+        @include flex-direction(row);
+        aside {
+            // This will create circular numbers before each block
+            &:before {
+                display: inline-block;
+                background-color: #eaeaea;
+                border-radius: 50%;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                line-height: 48px;
+                position: relative;
+                margin-bottom: .75rem;
+            }
+            @for $i from 1 through 4 {
+                &:nth-of-type(#{$i}):before {
+                    content: '#{$i}';
+                }
+            }
+        }
+    }
+
+    article,
+    #report-overview {
+        background-color: #F2F2F3;
+    }
+
+    .big-button {
+        display: inline-block;
+        background-color: #5bc0a1;
+        color: #fff;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        padding: 5px 15px;
+        border-radius: 50px;
+        margin-bottom: 0.5rem;
+    }
+
+    ul.accordion-tabs {
+        li {
+            width: 100%;
+        }
+    }
+
+    .pullquote {
+        @include media($tablet-up) {
+            &.alignleft {
+                border-right: 5px solid #eaeaea;
+            }
+        }
+    }
+
 }

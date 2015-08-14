@@ -3,6 +3,12 @@ img {
     height: auto;
 }
 
+figure.image-box {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+}
+
 // Embeds
 ////////////////////////////////////////
 figure.oembed {
@@ -38,6 +44,12 @@ figure.oembed {
     }
 }
 
+.aligncenter {
+    .image-meta {
+        @extend %caption-text-left;
+    }
+}
+
 .image-box {
     .image-meta {
         .photo-credit {
@@ -55,7 +67,6 @@ figure.oembed {
 }
 
 .image-box.alignnone {
-    margin-bottom: 1rem;
     .image-meta {
         .photo-caption {
             display: block;

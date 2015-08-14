@@ -34,6 +34,33 @@ add_action( 'init', function() {
 
 	} );
 
+	add_shortcode( 'pull_quote', function( $attr, $content = null ) {
+
+		$attr = wp_parse_args( $attr, array(
+			'alignment'		=> 'none',
+			'source'   		=> '',
+		) );
+
+		ob_start();
+        $alignment  = $attr['alignment'];
+		$source = $attr['source'];
+		$classes = 'pullquote'.' '.$alignment;
+		?>
+		<?php do_action('cap_report_pullquote_outside_before');?>
+		<aside class="<?php echo $classes;?>">
+			<?php do_action('cap_report_pullquote_inside_before');?>
+			<p><?php echo $content;?></p>
+			<span class="source"><?php echo $source;?></span>
+			<?php do_action('cap_report_pullquote_inside_end');?>
+		</aside>
+		<?php do_action('cap_report_pullquote_outside_end');?>
+
+		<?php
+
+		return ob_get_clean();
+
+	} );
+
     if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 		add_action( 'admin_notices', function(){
 			if ( current_user_can( 'activate_plugins' ) ) {
@@ -88,4 +115,50 @@ add_action( 'init', function() {
 		)
 	);
 
+	shortcode_ui_register_for_shortcode(
+		'pull_quote',
+		array(
+			// Display label. String. Required.
+			'label' => 'Pull Quote',
+
+			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
+			'listItemImage' => 'dashicons-editor-quote',
+
+			'inner_content' => array(
+				'label' => 'Quote',
+			),
+
+			'post_type'     => array( 'reports' ),
+
+			// Available shortcode attributes and default values. Required. Array.
+			// Attribute model expects 'attr', 'type' and 'label'
+			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
+			'attrs' => array(
+
+				array(
+					'label' => 'Alignment',
+					'attr'  => 'alignment',
+					'type'  => 'select',
+					'options'   => array(
+						'none'	=> 'None (Default)',
+						'alignleft' => 'Left'
+					),
+				),
+
+				array(
+					'label' => 'Cite',
+					'attr'  => 'source',
+					'type'  => 'text',
+					'meta' => array(
+						'placeholder' => 'John Doe',
+						'data-test'    => 1,
+					),
+				)
+
+			),
+
+		)
+	);
+
+	///////////////////////// END
 } );

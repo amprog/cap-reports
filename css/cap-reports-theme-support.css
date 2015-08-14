@@ -4356,6 +4356,12 @@ body.single-reports .entry-body > div {
     width: 300px;
   }
 }
+body.single-reports .entry-body .entry-sidebar > div > div, body.single-reports .entry-body .entry-sidebar > div > span {
+  display: block;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
 @media screen and (min-width: 900px) {
   body.single-reports .entry-body > div:last-of-type {
     width: -webkit-calc(100% - 250px);
@@ -4364,19 +4370,14 @@ body.single-reports .entry-body > div {
     padding-right: 2rem;
   }
 }
-body.single-reports .entry-body .entry-sidebar > div > div, body.single-reports .entry-body .entry-sidebar > div > span {
-  display: block;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eaeaea;
-}
 @media screen and (min-width: 720px) {
   body.single-reports .entry-body .entry-content > section:first-of-type .aesop-article-chapter-wrap {
     margin-top: 0px !important;
   }
 }
 body.single-reports .entry-body .entry-content figure.alignnone {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 body.single-reports .entry-body .entry-content figure.alignnone img {
   border-bottom: 1px solid #eaeaea;
@@ -4392,37 +4393,29 @@ body.single-reports .entry-body .entry-content figure.alignnone .sti .sti-share-
 body.single-reports .entry-body .entry-content figure.alignnone .sti .sti-share-box .mdi {
   display: inline-block !important;
 }
-body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left {
+body.single-reports .entry-body .entry-content .pullquote.alignleft {
   float: none;
   width: 100% !important;
 }
 @media screen and (min-width: 720px) {
-  body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left {
+  body.single-reports .entry-body .entry-content .pullquote.alignleft {
     float: left;
     margin-left: 0 !important;
     width: 35% !important;
-    margin-right: 50px !important;
+    margin-right: 40px !important;
+    margin-top: 0;
+  }
+  body.single-reports .entry-body .entry-content .pullquote.alignleft p {
+    padding-right: 1rem;
   }
 }
-body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left blockquote {
-  margin-left: 0 !important;
-}
 @media screen and (min-width: 900px) {
-  body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left {
+  body.single-reports .entry-body .entry-content .pullquote.alignleft {
     float: left !important;
     margin-left: -300px !important;
     width: calc(100% - 300px) !important;
     width: -webkit-calc(100% - 300px) !important;
-    margin-right: 65px !important;
-  }
-  body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left blockquote:before, body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left blockquote:after {
-    display: block;
-    content: "";
-    width: 40%;
-    border-top: 4px solid #eaeaea;
-  }
-  body.single-reports .entry-body .entry-content .aesop-quote-component.aesop-component-align-left blockquote.aesop-component-align-left {
-    text-align: left;
+    margin-right: 45px !important;
   }
 }
 @media screen and (min-width: 900px) {
@@ -4441,7 +4434,7 @@ body.single-reports .entry-body .entry-content .chapter-title + .oembed[data-src
   display: none;
 }
 body.single-reports .entry-body .entry-content .chapter-title + .oembed[data-src*="twitter.com"] .tweet-embed .tweet-offset {
-  border-bottom: 2px solid #55acee;
+  border-bottom: 2px solid rgba(85, 172, 238, 0.29);
 }
 body.single-reports .entry-body .entry-content .tweet-embed {
   position: relative;
@@ -4484,12 +4477,8 @@ body.single-reports .entry-body .entry-content .aesop-content-component .aesop-c
 body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner h5:first-of-type {
   margin-top: 0;
 }
-
 body.single-reports .entry-content {
   counter-reset: paragraph;
-}
-body.single-reports .entry-content p.counter-paragraph:hover:before {
-  opacity: 1.0;
 }
 body.single-reports .entry-content p.counter-paragraph:before {
   position: absolute;
@@ -4500,10 +4489,19 @@ body.single-reports .entry-content p.counter-paragraph:before {
   opacity: 0.4;
   font-size: .8rem;
 }
+body.single-reports .entry-content p.counter-paragraph:hover:before {
+  opacity: 1.0;
+}
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+figure.image-box {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.5rem;
 }
 
 figure.oembed[data-src*="soundcloud.com"] {
@@ -4515,7 +4513,7 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
 }
 
 @media screen and (min-width: 1123px) {
-  .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption, figure.wp-caption.aligncenter .wp-caption-text, figure.wp-caption.alignnone .wp-caption-text, figure.wp-caption.align-caption-left .wp-caption-text {
+  .aligncenter .image-meta, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption, figure.wp-caption.aligncenter .wp-caption-text, figure.wp-caption.alignnone .wp-caption-text, figure.wp-caption.align-caption-left .wp-caption-text {
     text-align: left;
     position: absolute;
     width: 250px;
@@ -4524,7 +4522,7 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
     left: -300px;
     padding-top: 0;
   }
-  .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption:before, figure.wp-caption.aligncenter .wp-caption-text:before, figure.wp-caption.alignnone .wp-caption-text:before, figure.wp-caption.align-caption-left .wp-caption-text:before {
+  .aligncenter .image-meta:before, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption:before, figure.wp-caption.aligncenter .wp-caption-text:before, figure.wp-caption.alignnone .wp-caption-text:before, figure.wp-caption.align-caption-left .wp-caption-text:before {
     content: "";
     border-top: 2px solid #eaeaea;
     display: block;
@@ -4546,9 +4544,6 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
   padding-right: 2rem;
 }
 
-.image-box.alignnone {
-  margin-bottom: 1rem;
-}
 .image-box.alignnone .image-meta .photo-caption {
   display: block;
   font-size: 0.8rem;
@@ -4771,6 +4766,24 @@ figure {
 }
 #report-overview #key-takeaways aside .share-selection {
   padding-left: 1rem;
+}
+
+.pullquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.pullquote p {
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+.pullquote .source {
+  font-size: 0.8rem;
+  color: #eaeaea;
+}
+.pullquote .source:before {
+  content: "-";
+  display: inline-block;
+  margin-right: 0.2rem;
 }
 
 /*# sourceMappingURL=cap-reports-theme-support.css.map */

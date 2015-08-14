@@ -26,18 +26,11 @@ body.single-reports {
             position: relative;
         }
 
+        // Sidebar
         & > div:first-of-type {
             @include media($two-columns) {
                 padding-left: 2rem;
                 width: 300px;
-            }
-        }
-
-        & > div:last-of-type {
-            @include media($two-columns) {
-                @include calc(width, "100% - 250px");
-                padding-left: 50px;
-                padding-right: 2rem;
             }
         }
 
@@ -53,6 +46,15 @@ body.single-reports {
             }
         }
 
+        // Content Well
+        & > div:last-of-type {
+            @include media($two-columns) {
+                @include calc(width, "100% - 250px");
+                padding-left: 50px;
+                padding-right: 2rem;
+            }
+        }
+
         .entry-content {
             @include media($tablet-up) {
                 & > section:first-of-type {
@@ -65,7 +67,8 @@ body.single-reports {
             // Full bleed images
             figure.alignnone {
                 @extend %full-bleed-in-grid;
-                margin: 0;
+                margin-left: 0;
+                margin-right: 0;
                 img {
                     border-bottom: 1px solid #eaeaea;
                     & + .sti-share-box {
@@ -82,43 +85,32 @@ body.single-reports {
                 }
             }
 
-            // Create pull quotes for the Aesop quote element.
-            .aesop-quote-component {
-                &.aesop-component-align-left {
+            // Pullquote alignment
+            .pullquote {
+                &.alignleft {
                     float: none;
                     width: 100%!important;
                     @include media($tablet-up) {
                         float: left;
                         margin-left: 0!important;
                         width: 35%!important;
-                        margin-right: 50px!important;
-                    }
-                    blockquote {
-                        margin-left: 0!important;
+                        margin-right: 40px!important;
+                        p {
+                            padding-right: 1rem;
+                        }
+                        margin-top: 0;
                     }
                     @include media($two-columns) {
                         float: left!important;
                         margin-left: -300px!important;
                         width: calc(100% - 300px)!important;
                         width: -webkit-calc(100% - 300px)!important;
-                        margin-right: 65px!important;
-                        blockquote {
-                            &:before,
-                            &:after {
-                                display: block;
-                                content: "";
-                                width: 40%;
-                                border-top: 4px solid #eaeaea;
-                            }
-
-                            &.aesop-component-align-left {
-                                text-align: left;
-                            }
-                        }
+                        margin-right: 45px!important;
                     }
                 }
             }
 
+            // TODO replace with new video shortcode...
             .aesop-video-component {
                 @include media($two-columns) {
                     &.aesop-component-align-left {
@@ -140,7 +132,7 @@ body.single-reports {
                     display: none;
                 }
                 .tweet-offset {
-                    border-bottom: 2px solid #55acee;
+                    border-bottom: 2px solid rgba(85, 172, 238, 0.29);
                 }
             }
             .tweet-embed {
@@ -175,7 +167,6 @@ body.single-reports {
             .aesop-video-component:not(.aesop-content),
             .wide-paragraph {
                 @extend %full-bleed-in-grid;
-                // max-width: 100%;
             }
             .aesop-content-component {
                 .aesop-content-comp-inner {
@@ -194,28 +185,27 @@ body.single-reports {
                     }
                 }
             }
-        }
-    }
-}
 
-body.single-reports {
+        } // .entry-content
+    } // .entry-body
+
     // Paragraph Counter
     .entry-content {
         counter-reset: paragraph;
-    }
-
-    .entry-content p.counter-paragraph:hover {
-        &:before {
-            opacity: 1.0;
+        p.counter-paragraph {
+            &:before {
+                position: absolute;
+                margin-left: -30px;
+                color: #CCC;
+                content: counter(paragraph);
+                counter-increment: paragraph;
+                opacity: 0.4;
+                font-size: .8rem;
+            }
+            &:hover:before {
+                opacity: 1.0;
+            }
         }
     }
-    .entry-content p.counter-paragraph:before {
-        position: absolute;
-        margin-left: -30px;
-        color: #CCC;
-        content: counter(paragraph);
-        counter-increment: paragraph;
-        opacity: 0.4;
-        font-size: .8rem;
-    }
+
 }

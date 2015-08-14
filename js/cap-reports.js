@@ -3,7 +3,6 @@ jQuery(document).ready(function(){
     // Wrap content between chapters
     jQuery('.chapter').each(function(index) {
         jQuery(this).attr('data-chapter', index);
-        console.log("Chapter "+index);
         jQuery(this).nextUntil('.chapter').appendTo(this);
     });
 
@@ -11,6 +10,7 @@ jQuery(document).ready(function(){
     jQuery('p:not(:has(img))').addClass('counter-paragraph');
     jQuery('p.wp-caption-text').removeClass('counter-paragraph');
     jQuery('.oembed p').removeClass('counter-paragraph');
+    jQuery('.pullquote p').removeClass('counter-paragraph');
     jQuery('blockquote > p').removeClass('counter-paragraph');
 
     jQuery('.twitter-tweet').wrap('<div class="tweet-offset"></div>');
