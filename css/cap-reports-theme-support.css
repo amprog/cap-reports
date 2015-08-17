@@ -4509,7 +4509,7 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
 }
 
 @media screen and (min-width: 1123px) {
-  .aligncenter .image-meta, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption, figure.wp-caption.aligncenter .wp-caption-text, figure.wp-caption.alignnone .wp-caption-text, figure.wp-caption.align-caption-left .wp-caption-text {
+  .aligncenter .image-meta, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption {
     text-align: left;
     position: absolute;
     width: 250px;
@@ -4518,7 +4518,7 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
     left: -300px;
     padding-top: 0;
   }
-  .aligncenter .image-meta:before, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption:before, figure.wp-caption.aligncenter .wp-caption-text:before, figure.wp-caption.alignnone .wp-caption-text:before, figure.wp-caption.align-caption-left .wp-caption-text:before {
+  .aligncenter .image-meta:before, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption:before {
     content: "";
     border-top: 2px solid #eaeaea;
     display: block;
@@ -4554,6 +4554,13 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
 
 figure {
   position: relative;
+}
+figure.interactive {
+  margin-left: 0;
+  margin-right: 0;
+}
+figure.interactive > div, figure.interactive > div[style], figure.interactive > iframe, figure.interactive > embed {
+  width: 100% !important;
 }
 
 .wp-caption {

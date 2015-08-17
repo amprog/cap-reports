@@ -100,11 +100,11 @@ add_action( 'init', function() {
 		$post 	 = get_post($id);
 		?>
 		<?php do_action('cap_report_interactiveshortcode_outside_before');?>
-		<aside id="interactive-<?php echo $id;?>" class="interactive">
+		<figure id="interactive-<?php echo $id;?>" class="interactive">
 			<?php do_action('cap_report_interactiveshortcode_inside_before');?>
 			<?php echo $post->post_content;?>
 			<?php do_action('cap_report_interactiveshortcode_inside_end');?>
-		</aside>
+		</figure>
 		<?php do_action('cap_report_interactiveshortcode_outside_end');?>
 
 		<?php
