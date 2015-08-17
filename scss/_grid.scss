@@ -162,14 +162,14 @@ body.single-reports {
             }
 
             // "Full Bleed" within grid
-            .aesop-article-chapter-wrap.has-chapter-image,
-            .aesop-content-component,
-            .aesop-video-component:not(.aesop-content),
+            .contentbox.box,
             .wide-paragraph {
                 @extend %full-bleed-in-grid;
             }
-            .aesop-content-component {
-                .aesop-content-comp-inner {
+
+            // Content block
+            .contentbox {
+                &.box .inner-content {
                     padding: 2rem;
                     @include media($two-columns) {
                         padding-left: 335px;

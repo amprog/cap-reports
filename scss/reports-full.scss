@@ -10,7 +10,10 @@ body.single-reports {
 
     #key-points {
         @include display(flex);
-        @include flex-direction(row);
+        @include flex-direction(column);
+        @include media($tablet-up) {
+            @include flex-direction(row);
+        }
         aside {
             // This will create circular numbers before each block
             &:before {
@@ -60,6 +63,12 @@ body.single-reports {
                 border-right: 5px solid #eaeaea;
             }
         }
+    }
+
+    .contentbox.box {
+        background-color: #eaeaea;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
 }

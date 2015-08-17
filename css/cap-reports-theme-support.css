@@ -4281,17 +4281,13 @@ html {
   display: inline-block;
 }
 
-body.single-reports .entry-body .entry-content figure.alignnone, body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .aesop-article-chapter-wrap.has-chapter-image,
-body.single-reports .entry-body .entry-content .aesop-content-component,
-body.single-reports .entry-body .entry-content .aesop-video-component:not(.aesop-content),
+body.single-reports .entry-body .entry-content figure.alignnone, body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .contentbox.box,
 body.single-reports .entry-body .entry-content .wide-paragraph, .chapter:not(:first-of-type) .chapter-title:before {
   width: calc(100% + 4rem);
   margin-left: -2rem;
 }
 @media screen and (min-width: 900px) {
-  body.single-reports .entry-body .entry-content figure.alignnone, body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .aesop-article-chapter-wrap.has-chapter-image,
-  body.single-reports .entry-body .entry-content .aesop-content-component,
-  body.single-reports .entry-body .entry-content .aesop-video-component:not(.aesop-content),
+  body.single-reports .entry-body .entry-content figure.alignnone, body.single-reports .entry-body .entry-content .tweet-embed, body.single-reports .entry-body .entry-content .contentbox.box,
   body.single-reports .entry-body .entry-content .wide-paragraph, .chapter:not(:first-of-type) .chapter-title:before {
     width: calc(100% + 368px);
     margin-left: -336px !important;
@@ -4462,19 +4458,19 @@ body.single-reports .entry-body .entry-content .tweet-embed .tweet-offset {
 body.single-reports .entry-body .entry-content .tweet-embed .tweet-offset iframe[style] {
   width: 100% !important;
 }
-body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner {
+body.single-reports .entry-body .entry-content .contentbox.box .inner-content {
   padding: 2rem;
 }
 @media screen and (min-width: 900px) {
-  body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner {
+  body.single-reports .entry-body .entry-content .contentbox.box .inner-content {
     padding-left: 335px;
   }
 }
-body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner h1:first-of-type,
-body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner h2:first-of-type,
-body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner h3:first-of-type,
-body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner h4:first-of-type,
-body.single-reports .entry-body .entry-content .aesop-content-component .aesop-content-comp-inner h5:first-of-type {
+body.single-reports .entry-body .entry-content .contentbox.box .inner-content h1:first-of-type,
+body.single-reports .entry-body .entry-content .contentbox.box .inner-content h2:first-of-type,
+body.single-reports .entry-body .entry-content .contentbox.box .inner-content h3:first-of-type,
+body.single-reports .entry-body .entry-content .contentbox.box .inner-content h4:first-of-type,
+body.single-reports .entry-body .entry-content .contentbox.box .inner-content h5:first-of-type {
   margin-top: 0;
 }
 body.single-reports .entry-content {
@@ -4530,6 +4526,10 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
     margin-bottom: 10px;
     margin-left: 50%;
   }
+}
+
+.image-box:not(.alignnone) .image-meta .photo-credit {
+  display: none;
 }
 
 .image-box .image-meta .photo-credit {
@@ -4730,25 +4730,12 @@ figure {
   display: table;
 }
 #report-overview #key-points aside {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
+  padding: 0 1rem;
   text-align: center;
-}
-#report-overview #key-points aside:last-child {
-  margin-right: 0;
 }
 @media screen and (max-width: 480px) {
   #report-overview #key-points aside {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
     margin-bottom: 1rem;
-  }
-  #report-overview #key-points aside:last-child {
-    margin-right: 0;
   }
 }
 #report-overview #key-takeaways {

@@ -49,9 +49,8 @@
         @include clearfix();
         padding: 2rem 0;
         aside {
-            @include span-columns(4);
+            padding: 0 1rem;
             @include media($palm) {
-                @include span-columns(12);
                 margin-bottom: 1rem;
             }
             text-align: center;

@@ -61,6 +61,58 @@ add_action( 'init', function() {
 
 	} );
 
+	add_shortcode( 'content', function( $attr ) {
+
+		$attr = wp_parse_args( $attr, array(
+			'id'		=> '',
+			'style'		=> 'box',
+		) );
+
+		ob_start();
+        $id 	 = $attr['id'];
+		$classes = 'contentbox'.' '.$attr['style'];
+		$post 	 = get_post($id);
+		?>
+		<?php do_action('cap_report_contentshortcode_outside_before');?>
+		<aside id="content-from-<?php echo $id;?>" class="<?php echo $classes;?>">
+			<?php do_action('cap_report_contentshortcode_inside_before');?>
+			<div class="inner-content">
+				<?php echo $post->post_content;?>
+			</div>
+			<?php do_action('cap_report_contentshortcode_inside_end');?>
+		</aside>
+		<?php do_action('cap_report_contentshortcode_outside_end');?>
+
+		<?php
+
+		return ob_get_clean();
+
+	} );
+
+	add_shortcode( 'interactive', function( $attr ) {
+
+		$attr = wp_parse_args( $attr, array(
+			'id'		=> ''
+		) );
+
+		ob_start();
+        $id 	 = $attr['id'];
+		$post 	 = get_post($id);
+		?>
+		<?php do_action('cap_report_interactiveshortcode_outside_before');?>
+		<aside id="interactive-<?php echo $id;?>" class="interactive">
+			<?php do_action('cap_report_interactiveshortcode_inside_before');?>
+			<?php echo $post->post_content;?>
+			<?php do_action('cap_report_interactiveshortcode_inside_end');?>
+		</aside>
+		<?php do_action('cap_report_interactiveshortcode_outside_end');?>
+
+		<?php
+
+		return ob_get_clean();
+
+	} );
+
     if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 		add_action( 'admin_notices', function(){
 			if ( current_user_can( 'activate_plugins' ) ) {
@@ -157,6 +209,70 @@ add_action( 'init', function() {
 
 			),
 
+		)
+	);
+
+	shortcode_ui_register_for_shortcode(
+		'content',
+		array(
+			// Display label. String. Required.
+			'label' => 'Content',
+
+			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
+			'listItemImage' => 'dashicons-editor-quote',
+
+			'post_type'     => array( 'reports', 'post' ),
+
+			// Available shortcode attributes and default values. Required. Array.
+			// Attribute model expects 'attr', 'type' and 'label'
+			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
+			'attrs' => array(
+
+				array(
+					'label'    => 'Select Post to Pull Content From',
+					'attr'     => 'id',
+					'type'     => 'post_select',
+					'query'    => array( 'post_type' => 'post' ),
+					'multiple' => false,
+				),
+
+				array(
+					'label' => 'Style',
+					'attr'  => 'style',
+					'type'  => 'select',
+					'options'   => array(
+						'box'	=> 'Box (Default)',
+						'none' => 'None'
+					),
+				),
+			)
+		)
+	);
+
+	shortcode_ui_register_for_shortcode(
+		'interactive',
+		array(
+			// Display label. String. Required.
+			'label' => 'Interactive',
+
+			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
+			'listItemImage' => 'dashicons-editor-quote',
+
+			'post_type'     => array( 'reports', 'post' ),
+
+			// Available shortcode attributes and default values. Required. Array.
+			// Attribute model expects 'attr', 'type' and 'label'
+			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
+			'attrs' => array(
+
+				array(
+					'label'    => 'Select Interactive to Include',
+					'attr'     => 'id',
+					'type'     => 'post_select',
+					'query'    => array( 'post_type' => 'interactive' ),
+					'multiple' => false,
+				)
+			)
 		)
 	);
 

@@ -50,6 +50,14 @@ figure.oembed {
     }
 }
 
+.image-box:not(.alignnone) {
+    .image-meta {
+        .photo-credit {
+            display: none;
+        }
+    }
+}
+
 .image-box {
     .image-meta {
         .photo-credit {

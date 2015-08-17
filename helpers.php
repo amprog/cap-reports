@@ -39,6 +39,15 @@ function cap_report_helper_filter_scripts($content){
 
 add_filter('the_content', 'cap_report_helper_filter_scripts');
 
+// Turn off TinyMCE for Interactives
+function disable_tinymce_interactives( $default ) {
+	global $post;
+	if ( 'interactive' == get_post_type( $post ) )
+		return false;
+	return $default;
+}
+add_filter( 'user_can_richedit', 'disable_tinymce_interactives' );
+
 /**
  * Overrides some Jetpack functionality.
  */
