@@ -16,8 +16,9 @@ function cap_report_overview_accordion() {
 
             <div>
                 <a href="#content" class="big-button">Read Report</a>
-                <br>
-                <a href="https://cdn.americanprogress.org/wp-content/uploads/2015/01/IPC-PDF-full.pdf" class="download-pdf"><span class="mdi mdi-file-pdf"></span> Download PDF</a>
+                <?php if( get_field('download_pdf') ) {
+                    echo '<br><a href="'.get_field('download_pdf').'" class="download-pdf" download><span class="mdi mdi-file-pdf"></span> Download PDF</a>';
+                } ?>
             </div>
 
             <ul class="accordion-tabs">

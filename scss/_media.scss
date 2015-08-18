@@ -3,12 +3,25 @@ img {
     height: auto;
 }
 
-figure.image-box {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 1.5rem;
-    @include media($up-to-two-columns) {
-        max-width: 100%;
+figure {
+    position: relative;
+    &.interactive {
+        margin-left: 0;
+        margin-right: 0;
+        & > div,
+        & > div[style],
+        & > iframe,
+        & > embed {
+            width: 100%!important;
+        }
+    }
+    &.image-box {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        @include media($up-to-two-columns) {
+            max-width: 100%;
+        }
     }
 }
 
@@ -85,27 +98,6 @@ figure.oembed {
             padding-top: 1rem;
             padding-left: 2rem;
             padding-right: 2rem;
-        }
-    }
-}
-
-
-.aesop-video-component.aesop-component-align-center.aesop-content {
-    .aesop-video-component-caption {
-        @extend %caption-text-left;
-    }
-}
-
-figure {
-    position: relative;
-    &.interactive {
-        margin-left: 0;
-        margin-right: 0;
-        & > div,
-        & > div[style],
-        & > iframe,
-        & > embed {
-            width: 100%!important;
         }
     }
 }

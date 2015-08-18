@@ -6,6 +6,25 @@ register_field_group(array (
 	'title' => 'Report Meta',
 	'fields' => array (
 		array (
+			'key' => 'field_55d3522663d70',
+			'label' => 'Download PDF',
+			'name' => 'download_pdf',
+			'type' => 'file',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'url',
+			'library' => 'all',
+			'min_size' => '',
+			'max_size' => '',
+			'mime_types' => 'pdf',
+		),
+		array (
 			'key' => 'field_5550fe5dde799',
 			'label' => 'Key Takeways',
 			'name' => 'key_takeaways',

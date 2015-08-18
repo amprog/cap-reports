@@ -30,14 +30,12 @@ function cap_report_helper_oembed_filter( $html, $url, $args ) {
 	$html = '<figure class="oembed" data-src="'.esc_url($url).'">' . $html . '</figure>';
     return $html;
 };
-// add the filter
 add_filter( 'oembed_result', 'cap_report_helper_oembed_filter', 10, 3 );
 
-function cap_report_helper_filter_scripts($content){
-   return preg_replace('/<p>\s*(<a .*>)?\s*(<script .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+function cap_report_image_strip_p_tag($content){
+	return preg_replace('/<p>\s*(<a .*>)?\s*(<script .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
-
-add_filter('the_content', 'cap_report_helper_filter_scripts');
+add_filter('the_content', 'cap_report_image_strip_p_tag');
 
 // Turn off TinyMCE for Interactives
 function disable_tinymce_interactives( $default ) {

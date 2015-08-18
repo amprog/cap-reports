@@ -22,7 +22,6 @@
 }
 
 #report-overview {
-
     .overview-container {
         @include outer-container($report-grid-max-width+300);
         padding: $report-grid-padding $report-grid-padding $report-grid-padding*2 $report-grid-padding;
@@ -31,7 +30,7 @@
             padding-top: .5rem;
             padding-bottom: 2rem;
             a {
-                &:last-of-type {
+                &.download-pdf {
                     color: darken(#eaeaea, 20%);
                     font-size: 0.8rem;
                 }

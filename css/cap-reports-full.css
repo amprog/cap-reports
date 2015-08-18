@@ -4494,6 +4494,16 @@ img {
   height: auto;
 }
 
+figure {
+  position: relative;
+}
+figure.interactive {
+  margin-left: 0;
+  margin-right: 0;
+}
+figure.interactive > div, figure.interactive > div[style], figure.interactive > iframe, figure.interactive > embed {
+  width: 100% !important;
+}
 figure.image-box {
   margin-left: 0;
   margin-right: 0;
@@ -4514,7 +4524,7 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
 }
 
 @media screen and (min-width: 1123px) {
-  .aligncenter .image-meta, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption {
+  .aligncenter .image-meta {
     text-align: left;
     position: absolute;
     width: 250px;
@@ -4523,7 +4533,7 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
     left: -300px;
     padding-top: 0;
   }
-  .aligncenter .image-meta:before, .aesop-video-component.aesop-component-align-center.aesop-content .aesop-video-component-caption:before {
+  .aligncenter .image-meta:before {
     content: "";
     border-top: 2px solid #eaeaea;
     display: block;
@@ -4555,17 +4565,6 @@ figure.oembed[data-src*="soundcloud.com"] iframe {
   padding-top: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
-}
-
-figure {
-  position: relative;
-}
-figure.interactive {
-  margin-left: 0;
-  margin-right: 0;
-}
-figure.interactive > div, figure.interactive > div[style], figure.interactive > iframe, figure.interactive > embed {
-  width: 100% !important;
 }
 
 .wp-caption {
@@ -4724,7 +4723,7 @@ figure.interactive > div, figure.interactive > div[style], figure.interactive > 
   padding-top: .5rem;
   padding-bottom: 2rem;
 }
-#report-overview .overview-container > div:first-of-type a:last-of-type {
+#report-overview .overview-container > div:first-of-type a.download-pdf {
   color: #b7b7b7;
   font-size: 0.8rem;
 }
