@@ -7,6 +7,9 @@ figure.image-box {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 1.5rem;
+    @include media($up-to-two-columns) {
+        max-width: 100%;
+    }
 }
 
 // Embeds

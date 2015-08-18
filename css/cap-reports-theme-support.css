@@ -4499,6 +4499,11 @@ figure.image-box {
   margin-right: 0;
   margin-bottom: 1.5rem;
 }
+@media screen and (max-width: 899px) {
+  figure.image-box {
+    max-width: 100%;
+  }
+}
 
 figure.oembed[data-src*="soundcloud.com"] {
   margin-left: 0;
