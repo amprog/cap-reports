@@ -25,6 +25,38 @@ figure {
     }
 }
 
+.download-shortcode {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    max-width: 450px;
+    margin-top: 1rem!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    border: 1px solid darken(#eaeaea, 5%);
+    padding: 0.8rem;
+    // Icon
+    & > div:first-of-type {
+        i {
+            background-color: white;
+            border-radius: 50px;
+            padding: 0.5rem;
+            margin-right: 0.8rem;
+        }
+        i:before {
+            font-size: 3rem;
+        }
+    }
+    // Description & Title
+    & > div:last-of-type {
+        h4 {
+            margin: 0;
+        }
+    }
+}
+
 // Embeds
 ////////////////////////////////////////
 figure.oembed {

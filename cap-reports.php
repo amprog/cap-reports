@@ -119,7 +119,6 @@ include $plugin_dir.'/report-overview.php';
 include $plugin_dir.'/report-related-content.php';
 include $plugin_dir.'/helpers.php';
 include $plugin_dir.'/fields.php';
-include $plugin_dir.'/img-functions.php';
 
 function cap_report_styles_scripts() {
     if (is_singular('reports')) {

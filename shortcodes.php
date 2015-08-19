@@ -20,13 +20,13 @@ add_action( 'init', function() {
             $bg = wp_get_attachment_image_src( $bg_id, 'large' );
         }
 		?>
-		<?php do_action('cap_report_chapter_outside_before');?>
+		<?php do_action('cap_report_chapter_shortcode_outside_before');?>
 		<section class="chapter">
-			<?php do_action('cap_report_chapter_inside_before');?>
+			<?php do_action('cap_report_chapter_shortcode_inside_before');?>
 			<h1 class="chapter-title"><?php echo $title;?></h1>
-			<?php do_action('cap_report_chapter_inside_end');?>
+			<?php do_action('cap_report_chapter_shortcode_inside_end');?>
 		</section>
-		<?php do_action('cap_report_chapter_outside_end');?>
+		<?php do_action('cap_report_chapter_shortcode_outside_end');?>
 
 		<?php
 
@@ -46,14 +46,14 @@ add_action( 'init', function() {
 		$source = $attr['source'];
 		$classes = 'pullquote'.' '.$alignment;
 		?>
-		<?php do_action('cap_report_pullquote_outside_before');?>
+		<?php do_action('cap_report_pullquote_shortcode_outside_before');?>
 		<aside class="<?php echo $classes;?>">
-			<?php do_action('cap_report_pullquote_inside_before');?>
+			<?php do_action('cap_report_pullquote_shortcode_inside_before');?>
 			<p><?php echo $content;?></p>
 			<span class="source"><?php echo $source;?></span>
-			<?php do_action('cap_report_pullquote_inside_end');?>
+			<?php do_action('cap_report_pullquote_shortcode_inside_end');?>
 		</aside>
-		<?php do_action('cap_report_pullquote_outside_end');?>
+		<?php do_action('cap_report_pullquote_shortcode_outside_end');?>
 
 		<?php
 
@@ -73,15 +73,15 @@ add_action( 'init', function() {
 		$classes = 'contentbox'.' '.$attr['style'];
 		$post 	 = get_post($id);
 		?>
-		<?php do_action('cap_report_contentshortcode_outside_before');?>
+		<?php do_action('cap_report_content_shortcode_outside_before');?>
 		<aside id="content-from-<?php echo $id;?>" class="<?php echo $classes;?>">
-			<?php do_action('cap_report_contentshortcode_inside_before');?>
+			<?php do_action('cap_report_content_shortcode_inside_before');?>
 			<div class="inner-content">
 				<?php echo $post->post_content;?>
 			</div>
-			<?php do_action('cap_report_contentshortcode_inside_end');?>
+			<?php do_action('cap_report_content_shortcode_inside_end');?>
 		</aside>
-		<?php do_action('cap_report_contentshortcode_outside_end');?>
+		<?php do_action('cap_report_content_shortcode_outside_end');?>
 
 		<?php
 
@@ -99,13 +99,56 @@ add_action( 'init', function() {
         $id 	 = $attr['id'];
 		$post 	 = get_post($id);
 		?>
-		<?php do_action('cap_report_interactiveshortcode_outside_before');?>
+		<?php do_action('cap_report_interactive_shortcode_outside_before');?>
 		<figure id="interactive-<?php echo $id;?>" class="interactive">
-			<?php do_action('cap_report_interactiveshortcode_inside_before');?>
+			<?php do_action('cap_report_interactive_shortcode_inside_before');?>
 			<?php echo $post->post_content;?>
-			<?php do_action('cap_report_interactiveshortcode_inside_end');?>
+			<?php do_action('cap_report_interactive_shortcode_inside_end');?>
 		</figure>
-		<?php do_action('cap_report_interactiveshortcode_outside_end');?>
+		<?php do_action('cap_report_interactive_shortcode_outside_end');?>
+
+		<?php
+
+		return ob_get_clean();
+
+	} );
+
+	add_shortcode( 'download', function( $attr ) {
+
+		$attr = wp_parse_args( $attr, array(
+			'file_id'		=> ''
+		) );
+
+		ob_start();
+        $id 	 = $attr['file_id'];
+		$file 	 = get_post($id);
+		?>
+		<?php do_action('cap_report_download_shortcode_outside_before');?>
+		<a href="<?php echo wp_get_attachment_url( $id );?>" id="file-download-<?php echo $id;?>" class="download-shortcode" data-file-type="<?php echo esc_attr($file->post_mime_type);?>" download>
+			<?php do_action('cap_report_download_shortcode_inside_before');?>
+			<div>
+				<?php
+				if ( $file->post_mime_type === 'application/pdf' ) {
+					echo '<i class="mdi mdi-file-pdf"></i>';
+				} elseif ( $file->post_mime_type === 'application/vnd.ms-excel' || $file->post_mime_type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) {
+					echo '<i class="mdi mdi-file-excel"></i>';
+				} elseif ( $file->post_mime_type === 'application/msword' || $file->post_mime_type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ) {
+					echo '<i class="mdi mdi-file-word"></i>';
+				} elseif ( $file->post_mime_type === 'image/svg+xml' ) {
+					echo '<i class="mdi mdi-file-image"></i>';
+				} else {
+					echo '<i class="mdi mdi-file"></i>';
+				}
+				?>
+			</div>
+			<div>
+				<small>Download File</small><br>
+				<h4><?php echo $file->post_title;?></h4>
+				<span class="description"><?php echo $file->post_content;?></span>
+			</div>
+			<?php do_action('cap_report_download_shortcode_inside_end');?>
+		</a>
+		<?php do_action('cap_report_download_shortcode_outside_end');?>
 
 		<?php
 
@@ -134,7 +177,7 @@ add_action( 'init', function() {
 			'label' => 'Chapter',
 
 			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
-			'listItemImage' => 'dashicons-editor-quote',
+			'listItemImage' => 'dashicons-editor-ol',
 
 			'post_type'     => array( 'reports' ),
 
@@ -170,21 +213,12 @@ add_action( 'init', function() {
 	shortcode_ui_register_for_shortcode(
 		'pull_quote',
 		array(
-			// Display label. String. Required.
 			'label' => 'Pull Quote',
-
-			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
 			'listItemImage' => 'dashicons-editor-quote',
-
 			'inner_content' => array(
 				'label' => 'Quote',
 			),
-
 			'post_type'     => array( 'reports' ),
-
-			// Available shortcode attributes and default values. Required. Array.
-			// Attribute model expects 'attr', 'type' and 'label'
-			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
 			'attrs' => array(
 
 				array(
@@ -215,17 +249,9 @@ add_action( 'init', function() {
 	shortcode_ui_register_for_shortcode(
 		'content',
 		array(
-			// Display label. String. Required.
 			'label' => 'Content',
-
-			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
-			'listItemImage' => 'dashicons-editor-quote',
-
+			'listItemImage' => 'dashicons-media-document',
 			'post_type'     => array( 'reports', 'post' ),
-
-			// Available shortcode attributes and default values. Required. Array.
-			// Attribute model expects 'attr', 'type' and 'label'
-			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
 			'attrs' => array(
 
 				array(
@@ -252,17 +278,9 @@ add_action( 'init', function() {
 	shortcode_ui_register_for_shortcode(
 		'interactive',
 		array(
-			// Display label. String. Required.
 			'label' => 'Interactive',
-
-			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
-			'listItemImage' => 'dashicons-editor-quote',
-
+			'listItemImage' => 'dashicons-chart-pie',
 			'post_type'     => array( 'reports', 'post' ),
-
-			// Available shortcode attributes and default values. Required. Array.
-			// Attribute model expects 'attr', 'type' and 'label'
-			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
 			'attrs' => array(
 
 				array(
@@ -272,6 +290,25 @@ add_action( 'init', function() {
 					'query'    => array( 'post_type' => 'interactive' ),
 					'multiple' => false,
 				)
+			)
+		)
+	);
+
+	shortcode_ui_register_for_shortcode(
+		'download',
+		array(
+			'label' => 'File Download',
+			'listItemImage' => 'dashicons-download',
+			'post_type'     => array( 'reports', 'post' ),
+			'attrs' => array(
+				array(
+					'label' => 'File',
+					'attr'  => 'file_id',
+					'type'  => 'attachment',
+					'libraryType' => array( 'application/pdf', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword', 'image/svg+xml' ),
+					'addButton'   => 'Select File',
+					'frameTitle'  => 'Select File (doc, xls, pdf, svg)',
+				),
 			)
 		)
 	);
