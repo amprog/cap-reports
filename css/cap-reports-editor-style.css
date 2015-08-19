@@ -1,0 +1,188 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+figure.parallax, .chapter:not(:first-of-type) .chapter-title:before {
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+}
+@media screen and (min-width: 900px) {
+  figure.parallax, .chapter:not(:first-of-type) .chapter-title:before {
+    width: calc(100% + 368px);
+    margin-left: -336px !important;
+  }
+}
+
+figure.parallax {
+  margin-left: 0;
+  margin-right: 0;
+  background-attachment: fixed;
+  background-position: top left;
+  background-size: 100% auto;
+}
+figure.parallax .inner {
+  min-height: 50vh;
+}
+figure.parallax .inner.gradient-cover {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  padding: 1rem;
+}
+figure.parallax .inner h2 {
+  color: #fff;
+  text-shadow: 0px 1px 1px #000;
+}
+
+.pullquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.pullquote p {
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+.pullquote .source {
+  font-size: 0.8rem;
+  color: #eaeaea;
+}
+.pullquote .source:before {
+  content: "-";
+  display: inline-block;
+  margin-right: 0.2rem;
+}
+
+.download-shortcode {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  max-width: 450px;
+  margin-top: 1rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: #eaeaea;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  padding: 0.8rem;
+}
+.download-shortcode > div:first-of-type {
+  position: relative;
+  margin-left: -45px;
+}
+.download-shortcode > div:first-of-type i {
+  background-color: white;
+  border-radius: 50px;
+  padding: 0.5rem;
+  margin-right: 0.8rem;
+}
+.download-shortcode > div:first-of-type i:before {
+  font-size: 3rem;
+}
+.download-shortcode > div:last-of-type h4 {
+  margin: 0;
+}
+
+.chapter .chapter-title {
+  margin-bottom: 2rem;
+}
+.chapter:not(:first-of-type) .chapter-title:before {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  content: "";
+  display: block;
+  border-top: 2px solid #eaeaea;
+}
+
+html {
+  background-color: #f2f2f3;
+}
+
+body#tinymce.post-type-reports {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-family: "jaf-facitweb", sans-serif !important;
+  line-height: 1.8;
+}
+@media screen and (min-width: 900px) {
+  body#tinymce.post-type-reports {
+    max-width: 860px !important;
+    padding-left: 340px !important;
+    padding-right: 2rem !important;
+  }
+}
+body#tinymce.post-type-reports img {
+  max-width: 100% !important;
+  height: auto;
+}
+body#tinymce.post-type-reports .mceTemp *[style] {
+  max-width: 100%;
+}
+body#tinymce.post-type-reports [data-wpview-text*="youtube.com"] .wpview-type-embedURL {
+  height: 0;
+  position: relative;
+  padding-bottom: 56.25%;
+}
+body#tinymce.post-type-reports [data-wpview-text*="youtube.com"] .wpview-type-embedURL iframe {
+  display: block !important;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+body#tinymce.post-type-reports .wp-caption dt > img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=cap-reports-editor-style.css.map */

@@ -11,6 +11,7 @@ module.exports = function(grunt) {
                 files: {
                     'css/cap-reports-theme-support.css':'scss/reports.scss',
                     'css/cap-reports-full.css':'scss/reports-full.scss',
+                    'css/cap-reports-editor-style.css':'scss/editor-style.scss',
                 }
             },
         },

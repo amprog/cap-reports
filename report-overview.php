@@ -66,12 +66,12 @@ function cap_report_overview_accordion() {
                 </li>
                 <?php endif;?>
 
-                <li class="tab-header-and-content">
+                <!-- <li class="tab-header-and-content">
                     <a href="javascript:void(0)" class="tab-link"><h4>Related Reports</h4></a>
                     <div class="tab-content">
-                        <?php related_reports();?>
+                        <?php //related_reports();?>
                     </div>
-                </li>
+                </li> -->
 
             </ul>
             <script>

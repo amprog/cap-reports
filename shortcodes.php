@@ -92,15 +92,17 @@ add_action( 'init', function() {
 	add_shortcode( 'interactive', function( $attr ) {
 
 		$attr = wp_parse_args( $attr, array(
-			'id'		=> ''
+			'id'		=> '',
+			'alignment'	=> 'full-bleed'
 		) );
 
 		ob_start();
         $id 	 = $attr['id'];
+		$alignment_class  = $attr['alignment'];
 		$post 	 = get_post($id);
 		?>
 		<?php do_action('cap_report_interactive_shortcode_outside_before');?>
-		<figure id="interactive-<?php echo $id;?>" class="interactive">
+		<figure id="interactive-<?php echo $id;?>" class="interactive <?php echo $alignment_class;?>">
 			<?php do_action('cap_report_interactive_shortcode_inside_before');?>
 			<?php echo $post->post_content;?>
 			<?php do_action('cap_report_interactive_shortcode_inside_end');?>
@@ -156,6 +158,41 @@ add_action( 'init', function() {
 
 	} );
 
+	add_shortcode( 'parallax', function( $attr ) {
+
+		$attr = wp_parse_args( $attr, array(
+			'image' => '',
+			'headline' => ''
+		) );
+
+		ob_start();
+        $bg_id  = $attr['image'];
+		$headline  = $attr['headline'];
+		$inner_class = 'inner';
+        $bg     = '';
+        if ($bg_id) {
+            $bg = wp_get_attachment_image_src( $bg_id, 'full' );
+        }
+		if ($headline) {
+			$inner_class = 'inner gradient-cover';
+		}
+		?>
+		<?php do_action('cap_report_parallax_shortcode_outside_before');?>
+		<figure class="parallax" style="background-image: url(<?php echo $bg[0];?>);">
+			<?php do_action('cap_report_parallax_shortcode_inside_before');?>
+			<div class="<?php echo $inner_class;?>"><h2><?php echo $headline;?></h2></div>
+			<?php do_action('cap_report_parallax_shortcode_inside_end');?>
+		</figure>
+		<?php do_action('cap_report_parallax_shortcode_outside_end');?>
+
+		<?php
+
+		return ob_get_clean();
+
+	} );
+
+	/////////////////////////////////////////////////////////////////
+	/// Throw warning if Shortcake not available.
     if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 		add_action( 'admin_notices', function(){
 			if ( current_user_can( 'activate_plugins' ) ) {
@@ -164,6 +201,7 @@ add_action( 'init', function() {
 		});
 		return;
 	}
+	/////////////////////////////////////////////////////////////////
 
 	/**
 	 * Register a UI for the Shortcode.
@@ -289,7 +327,17 @@ add_action( 'init', function() {
 					'type'     => 'post_select',
 					'query'    => array( 'post_type' => 'interactive' ),
 					'multiple' => false,
-				)
+				),
+
+				array(
+					'label' => 'Alignment',
+					'attr'  => 'alignment',
+					'type'  => 'select',
+					'options'   => array(
+						'full-bleed'	=> 'Full Bleed (Default)',
+						'in-content' => 'In Content Well'
+					),
+				),
 			)
 		)
 	);
@@ -310,6 +358,46 @@ add_action( 'init', function() {
 					'frameTitle'  => 'Select File (doc, xls, pdf, svg)',
 				),
 			)
+		)
+	);
+
+	shortcode_ui_register_for_shortcode(
+		'parallax',
+		array(
+			// Display label. String. Required.
+			'label' => 'Parallax Image',
+
+			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
+			'listItemImage' => 'dashicons-image-flip-vertical',
+
+			'post_type'     => array( 'reports' ),
+
+			// Available shortcode attributes and default values. Required. Array.
+			// Attribute model expects 'attr', 'type' and 'label'
+			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
+			'attrs' => array(
+
+				array(
+					'label' => 'Headline',
+					'attr'  => 'headline',
+					'type'  => 'text',
+					'meta' => array(
+						'placeholder' => 'Headline',
+						'data-test'    => 1,
+					),
+				),
+
+				array(
+					'label' => 'Parralax Image',
+					'attr'  => 'image',
+					'type'  => 'attachment',
+					'libraryType' => array( 'image' ),
+					'addButton'   => 'Select Image',
+					'frameTitle'  => 'Select Image',
+				),
+
+			),
+
 		)
 	);
 

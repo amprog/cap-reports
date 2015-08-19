@@ -120,6 +120,11 @@ include $plugin_dir.'/report-related-content.php';
 include $plugin_dir.'/helpers.php';
 include $plugin_dir.'/fields.php';
 
+function cap_report_backend_styles_scripts() {
+    add_editor_style( plugin_dir_url( __FILE__ ) . 'css/cap-reports-editor-style.css' );
+}
+add_action( 'admin_init', 'cap_report_backend_styles_scripts' );
+
 function cap_report_styles_scripts() {
     if (is_singular('reports')) {
         wp_register_style( 'cap-reports-theme-compat',  plugin_dir_url( __FILE__ ) . 'css/cap-reports-theme-support.css' );
