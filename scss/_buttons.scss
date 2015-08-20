@@ -1,7 +1,7 @@
 .cpr-btn {
     @include appearance(none);
     -webkit-font-smoothing: antialiased;
-    background-color: #fff;
+    background-color: $white;
     border-radius: 5px;
     border: none;
     cursor: pointer;

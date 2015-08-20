@@ -5,8 +5,8 @@
     width: 100%;
     padding: .5em;
     z-index: 3;
-    background-color: #fff;
-    border-top: 1px solid #eaeaea;
+    background-color: $white;
+    border-top: 1px solid $light-gray;
     @include media($palm) {
         font-size: 100%;
     }

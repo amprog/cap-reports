@@ -1,13 +1,8 @@
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-
-// Variables
-@import "variables/sizes";
-
-// Frameworks
+@import "variables/sizes"; // Sizes needs to come before Neat so that we can override default sizes in Neat.
+@import "variables/colors";
 @import "../bower_components/neat/app/assets/stylesheets/neat";
 @import "mixins";
-@import "../bower_components/mdi/scss/materialdesignicons";
-@import "shortcodes/shortcodes";
 
 // Styles
 
@@ -22,65 +17,65 @@ body#tinymce.post-type-reports {
     max-width: 100%;
     font-family: "jaf-facitweb",sans-serif!important;
     line-height: 1.8;
-    @include media(900px) {
-        max-width: 1200px!important;
-        padding-left: 340px!important;
-        padding-right: 2rem!important;
-        // Align Twitter Embeds
-        .wpview-wrap[data-wpview-text*="twitter.com"] {
-            width: calc(100% + 336px)!important;
-            margin-left: -336px!important;
-            &:before {
-                display: block;
-                content: "";
-                width: 100%;
-                border-top: 2px solid rgba(85, 172, 238, 0.29);
-                position: relative;
-                top: -2px;
-            }
-            .wpview-content {
-                position: absolute;
-                top: -2px;
-                border-top: 2px solid #55acee;
-                width: 300px;
-            }
-        }
-        .wpview-wrap[data-wpview-type="chapter"] {
-            &:not(:first-of-type) {
-                &:before {
-                    margin-top: 2rem;
-                    margin-bottom: 2rem;
-                    content: "";
-                    display: block;
-                    border-top: 2px solid #eaeaea;
-                    width: 100%;
-                    position: relative;
-                    width: calc(100% + 366px)!important;
-                    margin-left: -336px;
-                }
-            }
-            & + .wpview-wrap[data-wpview-text*="twitter.com"] {
-                &:before {
-                    display: none;
-                }
-                .wpview-content {
-                    border-bottom: 2px solid #55acee;
-                }
-            }
-        }
-        //
-        // .wp-photo.size-full[data-alignment="alignnone"] {
-        //     max-width: calc(100% + 368px)!important;
-        //     margin-left: -338px!important;
-        // }
-        .wpview-wrap[data-wpview-type="interactive"] {
-            width: calc(100% + 368px)!important;
-            margin-left: -338px!important;
-            figure:not(.full-bleed) {
-
-            }
-        }
-    }
+    // @include media(900px) {
+    //     max-width: 1200px!important;
+    //     padding-left: 340px!important;
+    //     padding-right: 2rem!important;
+    //     // Align Twitter Embeds
+    //     .wpview-wrap[data-wpview-text*="twitter.com"] {
+    //         width: calc(100% + 336px)!important;
+    //         margin-left: -336px!important;
+    //         &:before {
+    //             display: block;
+    //             content: "";
+    //             width: 100%;
+    //             border-top: 2px solid rgba(85, 172, 238, 0.29);
+    //             position: relative;
+    //             top: -2px;
+    //         }
+    //         .wpview-content {
+    //             position: absolute;
+    //             top: -2px;
+    //             border-top: 2px solid $twitter;
+    //             width: 300px;
+    //         }
+    //     }
+    //     .wpview-wrap[data-wpview-type="chapter"] {
+    //         &:not(:first-of-type) {
+    //             &:before {
+    //                 margin-top: 2rem;
+    //                 margin-bottom: 2rem;
+    //                 content: "";
+    //                 display: block;
+    //                 border-top: 2px solid #eaeaea;
+    //                 width: 100%;
+    //                 position: relative;
+    //                 width: calc(100% + 366px)!important;
+    //                 margin-left: -336px;
+    //             }
+    //         }
+    //         & + .wpview-wrap[data-wpview-text*="twitter.com"] {
+    //             &:before {
+    //                 display: none;
+    //             }
+    //             .wpview-content {
+    //                 border-bottom: 2px solid #55acee;
+    //             }
+    //         }
+    //     }
+    //     //
+    //     // .wp-photo.size-full[data-alignment="alignnone"] {
+    //     //     max-width: calc(100% + 368px)!important;
+    //     //     margin-left: -338px!important;
+    //     // }
+    //     .wpview-wrap[data-wpview-type="interactive"] {
+    //         width: calc(100% + 368px)!important;
+    //         margin-left: -338px!important;
+    //         figure:not(.full-bleed) {
+    //
+    //         }
+    //     }
+    // }
 
     // Responsive Images and Embeds
     ///////////////////////////////

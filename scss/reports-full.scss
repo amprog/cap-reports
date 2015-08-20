@@ -18,7 +18,7 @@ body.single-reports {
             // This will create circular numbers before each block
             &:before {
                 display: inline-block;
-                background-color: #eaeaea;
+                background-color: $light-gray;
                 border-radius: 50%;
                 text-align: center;
                 width: 50px;
@@ -37,13 +37,13 @@ body.single-reports {
 
     article,
     #report-overview {
-        background-color: #F2F2F3;
+        background-color: $medium-gray;
     }
 
     .big-button {
         display: inline-block;
-        background-color: #5bc0a1;
-        color: #fff;
+        background-color: $wceg-primary;
+        color: $white;
         font-size: 1.25rem;
         text-transform: uppercase;
         padding: 5px 15px;
@@ -60,13 +60,13 @@ body.single-reports {
     .pullquote {
         @include media($tablet-up) {
             &.alignleft {
-                border-right: 5px solid #eaeaea;
+                border-right: 5px solid $light-gray;
             }
         }
     }
 
     .contentbox.box {
-        background-color: #eaeaea;
+        background-color: $light-gray;
         margin-top: 1rem;
         margin-bottom: 1rem;
     }

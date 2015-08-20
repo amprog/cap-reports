@@ -154,6 +154,22 @@ register_field_group(array (
 			'readonly' => 0,
 			'disabled' => 0,
 		),
+		array (
+			'key' => 'field_55d63a9acb498',
+			'label' => 'Static Header',
+			'name' => 'static_header',
+			'type' => 'true_false',
+			'instructions' => 'Checking this box will disable the parallax scrolling header image for the report.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+		),
 	),
 	'location' => array (
 		array (

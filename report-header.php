@@ -27,8 +27,13 @@ if ( ! function_exists('cap_report_header') ) {
             if(get_field('video_header')) {
                 $header_bg = 'data-vide-bg="'.get_field('video_header').'"';
             }
+
+            $header_class = 'cpr-report-featured-image cpr-report-header';
+            if (get_field('static_header')) {
+                $header_class .= ' static-header';
+            }
             ?>
-            <div id="report-header" class="cpr-report-featured-image cpr-report-header" <?php echo $header_bg;?>>
+            <div id="report-header" class="<?php echo $header_class;?>" <?php echo $header_bg;?>>
 
                 <div class="cpr-header-gradient maintain-ratio">
 

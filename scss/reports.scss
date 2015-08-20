@@ -5,13 +5,9 @@
 */
 
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-
-// Variables
-@import "variables/sizes";
-
-// Frameworks
+@import "variables/sizes"; // Sizes needs to come before Neat so that we can override default sizes in Neat.
+@import "variables/colors";
 @import "../bower_components/neat/app/assets/stylesheets/neat";
-@import "../bower_components/mdi/scss/materialdesignicons";
 
 @import "mixins";
 @import "modals";
@@ -23,4 +19,3 @@
 @import "related-content";
 @import "report-toolbar";
 @import "accordion";
-@import "shortcodes/shortcodes";
