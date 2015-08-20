@@ -4193,6 +4193,17 @@ figure.parallax .inner h2 {
   border-top: 2px solid #eaeaea;
 }
 
+figure {
+  position: relative;
+}
+figure.interactive {
+  margin-left: 0;
+  margin-right: 0;
+}
+figure.interactive > div, figure.interactive > div[style], figure.interactive > iframe, figure.interactive > embed {
+  width: 100% !important;
+}
+
 html {
   background-color: #f2f2f3;
   padding-left: 1rem;

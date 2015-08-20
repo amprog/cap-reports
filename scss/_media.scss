@@ -5,22 +5,31 @@ img {
 
 figure {
     position: relative;
-    &.interactive {
-        margin-left: 0;
-        margin-right: 0;
-        & > div,
-        & > div[style],
-        & > iframe,
-        & > embed {
-            width: 100%!important;
-        }
-    }
     &.image-box {
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 1.5rem;
         @include media($up-to-two-columns) {
             max-width: 100%;
+        }
+    }
+}
+
+// Image Share Overrides
+.sti {
+    &[style] {
+        width: auto!important;
+    }
+    .sti-share-box {
+        padding: 0.5rem;
+        .mdi {
+            cursor: pointer;
+            color: white;
+            display: inline-block!important;
+            margin-right: 0.3rem;
+            &:before {
+                text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
+            }
         }
     }
 }

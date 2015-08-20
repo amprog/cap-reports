@@ -4378,17 +4378,6 @@ body.single-reports .entry-body .entry-content figure.alignnone {
 body.single-reports .entry-body .entry-content figure.alignnone img {
   border-bottom: 1px solid #eaeaea;
 }
-body.single-reports .entry-body .entry-content figure.alignnone img + .sti-share-box {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-body.single-reports .entry-body .entry-content figure.alignnone .sti .sti-share-box {
-  position: relative !important;
-  left: 0 !important;
-}
-body.single-reports .entry-body .entry-content figure.alignnone .sti .sti-share-box .mdi {
-  display: inline-block !important;
-}
 body.single-reports .entry-body .entry-content figure.full-bleed {
   margin-left: 0;
   margin-right: 0;
@@ -4501,13 +4490,6 @@ img {
 figure {
   position: relative;
 }
-figure.interactive {
-  margin-left: 0;
-  margin-right: 0;
-}
-figure.interactive > div, figure.interactive > div[style], figure.interactive > iframe, figure.interactive > embed {
-  width: 100% !important;
-}
 figure.image-box {
   margin-left: 0;
   margin-right: 0;
@@ -4517,6 +4499,22 @@ figure.image-box {
   figure.image-box {
     max-width: 100%;
   }
+}
+
+.sti[style] {
+  width: auto !important;
+}
+.sti .sti-share-box {
+  padding: 0.5rem;
+}
+.sti .sti-share-box .mdi {
+  cursor: pointer;
+  color: white;
+  display: inline-block !important;
+  margin-right: 0.3rem;
+}
+.sti .sti-share-box .mdi:before {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 figure.oembed[data-src*="soundcloud.com"] {
@@ -4880,6 +4878,17 @@ figure.parallax .inner h2 {
   content: "";
   display: block;
   border-top: 2px solid #eaeaea;
+}
+
+figure {
+  position: relative;
+}
+figure.interactive {
+  margin-left: 0;
+  margin-right: 0;
+}
+figure.interactive > div, figure.interactive > div[style], figure.interactive > iframe, figure.interactive > embed {
+  width: 100% !important;
 }
 
 body.single-reports #report-overview h4 {

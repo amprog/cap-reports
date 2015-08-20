@@ -2,3 +2,17 @@
 @import "pullquote";
 @import "download";
 @import "chapter";
+
+figure {
+    position: relative;
+    &.interactive {
+        margin-left: 0;
+        margin-right: 0;
+        & > div,
+        & > div[style],
+        & > iframe,
+        & > embed {
+            width: 100%!important;
+        }
+    }
+}
