@@ -46,7 +46,6 @@
     #key-points {
         width: 100%;
         @include clearfix();
-        padding: 2rem 0;
         aside {
             padding: 0 1rem;
             @include media($palm) {
@@ -57,7 +56,6 @@
     }
 
     #key-takeaways {
-        padding-bottom: 2rem;
         aside {
             padding: 1rem 3rem;
             font-size: 1.85rem;
@@ -70,4 +68,5 @@
             }
         }
     }
+    
 }

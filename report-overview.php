@@ -15,7 +15,7 @@ function cap_report_overview_accordion() {
         <div class="overview-container">
 
             <div>
-                <a href="#content" class="big-button">Read Report</a>
+                <a href="#report-<?php the_ID();?>" class="big-button">Read Report</a>
                 <?php if( get_field('download_pdf') ) {
                     echo '<br><a href="'.get_field('download_pdf').'" class="download-pdf" download><span class="mdi mdi-file-pdf"></span> Download PDF</a>';
                 } ?>

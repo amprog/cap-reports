@@ -35,6 +35,36 @@ body.single-reports {
         }
     }
 
+    .accordion-tabs {
+        .tab-content {
+            padding-bottom: 2rem;
+        }
+        .tab-link {
+            text-align: center;
+            @include clearfix();
+            margin-bottom: 3rem;
+            h4 {
+                margin: 0!important;
+                display: inline;
+                background-color: $medium-gray;
+                z-index: 2;
+                position: relative;
+                padding: 1rem;
+            }
+            &:after {
+                content: "";
+                display: block;
+                z-index: 1;
+                position: relative;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                border-top: 1px solid black;
+                margin-top: -12px;
+            }
+        }
+    }
+
     article,
     #report-overview {
         background-color: $medium-gray;
@@ -57,7 +87,7 @@ body.single-reports {
         }
     }
 
-    .pullquote {
+    .ccb-pullquote {
         @include media($tablet-up) {
             &.alignleft {
                 border-right: 5px solid $light-gray;
@@ -65,7 +95,7 @@ body.single-reports {
         }
     }
 
-    .contentbox.box {
+    .ccb-content.box {
         background-color: $light-gray;
         margin-top: 1rem;
         margin-bottom: 1rem;

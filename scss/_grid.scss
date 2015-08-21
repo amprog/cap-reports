@@ -55,6 +55,16 @@ body.single-reports {
                 }
             }
 
+            // Shortcode Tweaks
+            .ccb-chapter {
+                &:before {
+                    @extend %full-bleed-in-grid;
+                }
+            }
+            .ccb-parallax {
+                @extend %full-bleed-in-grid;
+            }
+
             // Full bleed images
             figure.alignnone {
                 @extend %full-bleed-in-grid;
@@ -72,7 +82,7 @@ body.single-reports {
             }
 
             // Pullquote alignment
-            .pullquote {
+            .ccb-pullquote {
                 &.alignleft {
                     float: none;
                     width: 100%!important;
@@ -148,10 +158,17 @@ body.single-reports {
             }
 
             // "Full Bleed" within grid
-            .contentbox.box,
+            .ccb-content.box,
             .wide-paragraph {
                 @extend %full-bleed-in-grid;
             }
+
+            // This isn't ready yet...
+            // .wp-video {
+            //     @extend %full-bleed-in-grid;
+            //     .mejs-video {
+            //     }
+            // }
 
             // Content block
             .ccb-content {
