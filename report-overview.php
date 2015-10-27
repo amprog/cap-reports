@@ -56,8 +56,8 @@ function cap_report_overview_accordion() {
                         while ( have_rows('key_takeaways') ) : the_row();
 
                             // display a sub field value
-                            echo '<aside class="takeaway shareable-text">';
-                            the_sub_field('text');
+                            echo '<aside class="takeaway">';
+                            echo '<p class="shareable-text">'.get_sub_field('text').'</p>';
                             echo '</aside>';
 
                         endwhile;

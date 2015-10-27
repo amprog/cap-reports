@@ -1,3 +1,6 @@
+.ccb-chapter-has-image .ccb-chapter-image {
+    @extend %full-bleed-in-grid;
+}
 #chapter-list.modal {
     background-color: rgba(0,0,0,0.5);
     .modal-container {
