@@ -188,48 +188,4 @@ register_field_group(array (
 	'hide_on_screen' => '',
 ));
 
-register_field_group(array (
-	'key' => 'group_5506fa74f3296',
-	'title' => 'Subtitle',
-	'fields' => array (
-		array (
-			'key' => 'field_5506fa7fc383d',
-			'label' => 'Subtitle',
-			'name' => 'subtitle',
-			'prefix' => '',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array (
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-			'readonly' => 0,
-			'disabled' => 0,
-		),
-	),
-	'location' => array (
-		array (
-			array (
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'reports',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'acf_after_title',
-	'style' => 'seamless',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-));
-
 endif;
